@@ -1,0 +1,25 @@
+{
+  "name": "seantdg-project-template-backend",
+  "version": "0.0.1",
+  "description": "Express App to quickly start a new project",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seantdg/ProjectTemplate.git"
+  },
+  "keywords": [
+    "seantdg"
+  ],
+  "author": "Sean Davis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/seantdg/ProjectTemplate/issues"
+  },
+  "homepage": "https://github.com/seantdg/ProjectTemplate#readme",
+  "dependencies": {
+    "mongodb-rest": "^0.10.14"
+  }
+}
