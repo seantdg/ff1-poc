@@ -1,7 +1,7 @@
 var makePrediction = function() {
 	var driver = $('#inDriver').val();
-	var pos = $('#inPos').val();
-	var round = $('#inRound').val();
+	var position = $('#inPosition').val();
+	var circuit = $('#inCircuit').val();
 
 	//make sure they have provided values
 	if(driver.length > 0 && pos.length > 0){
@@ -12,8 +12,8 @@ var makePrediction = function() {
 			type:"POST",
 			data:JSON.stringify({
 				driver: driver,
-				pos: pos,
-				round: round
+				position: position,
+				circuit: circuit
 			}),
 			dataType: 'json',
 			success:function(data){
@@ -26,18 +26,16 @@ var makePrediction = function() {
 
 		//reset fields
 		$('#inDriver').val('');
-		$('#inPos').val('');
-		$('#inRound').val('');
+		$('#inPosition').val('');
+		$('#inCircuit').val('');
 	}
 };
 
 var populateList = function () {
 	$.get("/middleware/predictions", function(data) {
 		var list = "";
-		data.forEach(function(element){
-			if(element.item) {
-				list+='<li class="list-group-item">' + element.item + '</li>';
-			}
+		data.forEach(function(prediction){
+			list+='<li class="list-group-item">' + prediction.driver + " - " + prediction.circuit + " - " + prediction.position + " - " prediction.state + '</li>';
 		});
 
 		$("#results").html(list);
