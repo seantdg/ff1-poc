@@ -1,10 +1,10 @@
 var makePrediction = function() {
 	var driver = $('#inDriver').val();
-	var position = $('#inPosition').val();
+	var position = $('#inPos').val();
 	var circuit = $('#inCircuit').val();
 
 	//make sure they have provided values
-	if(driver.length > 0 && pos.length > 0){
+	if(driver.length > 0 && position.length > 0){
 		//ajax call to backend
 		$.ajax({
 			url:"/middleware/predictions",
@@ -26,7 +26,7 @@ var makePrediction = function() {
 
 		//reset fields
 		$('#inDriver').val('');
-		$('#inPosition').val('');
+		$('#inPos').val('');
 		$('#inCircuit').val('');
 	}
 };
@@ -34,11 +34,12 @@ var makePrediction = function() {
 var populateList = function () {
 	$.get("/middleware/predictions", function(data) {
 		var list = "";
-		data.forEach(function(prediction){
-			list+='<li class="list-group-item">' + prediction.driver + " - " + prediction.circuit + " - " + prediction.position + " - " prediction.state + '</li>';
+		var predictions = data;
+		predictions.forEach(function(prediction){
+			list+='<li class="list-group-item">' + prediction.driver + " - " + prediction.circuit + " - " + prediction.position + " - " + prediction.result + '</li>';
 		});
 
-		$("#results").html(list);
+		$("#predictions").html(list);
 	});
 }
 
