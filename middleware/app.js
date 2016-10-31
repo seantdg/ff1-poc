@@ -6,7 +6,8 @@ var bodyParser = require('body-parser');
 
 var app = express();
 app.use(bodyParser.json());
-var url = 'http://' + process.env.DBFACADE_PORT_3000_TCP_ADDR + ':' + process.env.DBFACADE_PORT_3000_TCP_PORT
+var url = 'http://db_interface:3000'
+//var url = 'http://' + process.env.DBFACADE_PORT_3000_TCP_ADDR + ':' + process.env.DBFACADE_PORT_3000_TCP_PORT
 console.log("backend url is:" + url);
 
 // define supported routes

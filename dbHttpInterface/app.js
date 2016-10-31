@@ -1,8 +1,8 @@
 var mongodbRest = require('mongodb-rest/server.js');
 
 var config = { 
-	//"db": "mongodb://localhost:27017",
-	"db":"mongodb://" + process.env.MONGODB_PORT_27017_TCP_ADDR + ":" + process.env.MONGODB_PORT_27017_TCP_PORT,
+	"db": "mongodb://db:27017",
+	//"db":"mongodb://" + process.env.MONGODB_PORT_27017_TCP_ADDR + ":" + process.env.MONGODB_PORT_27017_TCP_PORT,
 	"server": {
 		"port": 3000,
 		"address": "0.0.0.0"

@@ -1,0 +1,18 @@
+version: '2'
+services: 
+  db:
+    image: mongo
+  db_interface:
+    build: ./dbHttpInterface
+    depends_on:
+      - db
+  middleware:
+    build: ./middleware
+    depends_on:
+      - db_interface
+  web:
+    build: ./web
+    depends_on:
+      - middleware
+    ports:
+      - "80:80"
